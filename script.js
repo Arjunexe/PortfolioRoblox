@@ -1,94 +1,54 @@
-// ===========================
-// Particle System
-// ===========================
+// Background particles
 const canvas = document.getElementById('particles-canvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
-let animationId;
-
-function resizeCanvas() {
+function resizeParticles() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    particles = Array.from({ length: Math.min(Math.floor(canvas.width * canvas.height / 15000), 80) }, () => ({
+        x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+        size: Math.random() * 2 + .5,
+        vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3,
+        opacity: Math.random() * .5 + .1,
+        color: Math.random() > .5 ? '168,85,247' : '34,211,238'
+    }));
 }
-
-function createParticle() {
-    return {
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 2 + 0.5,
-        speedX: (Math.random() - 0.5) * 0.3,
-        speedY: (Math.random() - 0.5) * 0.3,
-        opacity: Math.random() * 0.5 + 0.1,
-        color: Math.random() > 0.5 ? '168, 85, 247' : '34, 211, 238'
-    };
-}
-
-function initParticles() {
-    const count = Math.min(Math.floor((canvas.width * canvas.height) / 15000), 80);
-    particles = [];
-    for (let i = 0; i < count; i++) {
-        particles.push(createParticle());
-    }
-}
-
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 function drawParticles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     particles.forEach(p => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${p.color}, ${p.opacity})`;
+        ctx.fillStyle = `rgba(${p.color},${p.opacity})`;
         ctx.fill();
-
-        p.x += p.speedX;
-        p.y += p.speedY;
-
-        if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+        if (!reducedMotion.matches) {
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+        }
     });
-
-    // Draw connections
     for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
+        for (let k = i + 1; k < particles.length; k++) {
+            const a = particles[i], b = particles[k];
+            const distance = Math.hypot(a.x - b.x, a.y - b.y);
             if (distance < 150) {
-                ctx.beginPath();
-                ctx.moveTo(particles[i].x, particles[i].y);
-                ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.strokeStyle = `rgba(168, 85, 247, ${0.06 * (1 - distance / 150)})`;
-                ctx.lineWidth = 0.5;
-                ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+                ctx.strokeStyle = `rgba(168,85,247,${.06 * (1 - distance / 150)})`;
+                ctx.lineWidth = .5; ctx.stroke();
             }
         }
     }
-
-    animationId = requestAnimationFrame(drawParticles);
 }
-
-resizeCanvas();
-initParticles();
-drawParticles();
-
-window.addEventListener('resize', () => {
-    resizeCanvas();
-    initParticles();
-});
-
-// ===========================
-// Cursor Glow
-// ===========================
-const cursorGlow = document.getElementById('cursor-glow');
-let mouseX = 0, mouseY = 0;
-
-document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursorGlow.style.left = mouseX + 'px';
-    cursorGlow.style.top = mouseY + 'px';
-});
+let particleFrame;
+function runParticles() {
+    cancelAnimationFrame(particleFrame);
+    drawParticles();
+    if (!reducedMotion.matches && !document.hidden) particleFrame = requestAnimationFrame(runParticles);
+}
+resizeParticles(); runParticles();
+window.addEventListener('resize', () => { resizeParticles(); runParticles(); });
+reducedMotion.addEventListener('change', runParticles);
+document.addEventListener('visibilitychange', runParticles);
 
 // ===========================
 // Navbar Scroll Effect
@@ -133,7 +93,8 @@ mobileLinks.forEach(link => {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+        const target = href === '#' ? document.getElementById('hero') : document.querySelector(href);
         if (target) {
             const offset = 80;
             const position = target.getBoundingClientRect().top + window.scrollY - offset;
@@ -314,25 +275,3 @@ function showImageModal(src, title) {
     document.body.appendChild(modal);
 }
 
-// ===========================
-// Tilt effect on service cards
-// ===========================
-const tiltCards = document.querySelectorAll('.service-card');
-
-tiltCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
-
-        card.style.transform = `translateY(-8px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-    });
-});

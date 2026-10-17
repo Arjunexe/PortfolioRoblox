@@ -4,29 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dudehunttt — Roblox UI Designer & Animator</title>
-    <meta name="description" content="Freelance Roblox UI Designer & Animator crafting immersive game interfaces. Custom UI design, animations, and implementation for your Roblox experience.">
+    <meta name="description" content="Custom Roblox UI by Dudehunttt. Figma design, UI animation, and Luau implementation for shops, inventories, and menus.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20261017-fit">
 </head>
 <body>
-    <!-- Particles canvas -->
-    <canvas id="particles-canvas"></canvas>
-
-    <!-- Custom cursor glow -->
-    <div id="cursor-glow"></div>
-
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
             <a href="#" class="nav-logo">
-                <span class="logo-bracket">&lt;</span>Dudehunttt<span class="logo-bracket"> /&gt;</span>
+                Dudehunttt
             </a>
             <ul class="nav-links">
-                <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#portfolio" class="nav-link">Past Works</a></li>
                 <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#contact" class="nav-link nav-link-cta">Let's Talk</a></li>
             </ul>
             <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
@@ -40,9 +35,9 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="mobile-menu">
         <ul class="mobile-nav-links">
-            <li><a href="#about" class="mobile-nav-link">About</a></li>
             <li><a href="#portfolio" class="mobile-nav-link">Past Works</a></li>
             <li><a href="#services" class="mobile-nav-link">Services</a></li>
+            <li><a href="#about" class="mobile-nav-link">About</a></li>
             <li><a href="#contact" class="mobile-nav-link">Let's Talk</a></li>
         </ul>
     </div>
@@ -55,14 +50,8 @@
                     <span class="badge-dot"></span>
                     Available for Freelance
                 </div>
-                <h1 class="hero-title">
-                    I craft <span class="gradient-text">immersive UI</span>
-                    <br>for Roblox games
-                </h1>
-                <p class="hero-subtitle">
-                    Roblox UI Designer turning game ideas into polished, 
-                    animated interfaces that players love.
-                </p>
+                <h1 class="hero-title">Custom Roblox UI,<br><span class="gradient-text">designed and animated</span> in Studio.</h1>
+                <p class="hero-subtitle">Shops, inventories, and menus — from custom Figma designs to working interfaces in Roblox Studio.</p>
                 <div class="hero-cta">
                     <a href="#portfolio" class="btn btn-primary">
                         <span>View My Work</span>
@@ -72,17 +61,7 @@
                         <span>Hire Me</span>
                     </a>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-value"><span class="stat-number" data-target="10">10</span><span class="stat-suffix">+</span></span>
-                        <span class="stat-label">Months Experience</span>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat">
-                        <span class="stat-value"><span class="stat-number" data-target="100">100</span><span class="stat-suffix">%</span></span>
-                        <span class="stat-label">Passion</span>
-                    </div>
-                </div>
+                <p class="hero-capabilities">Design <span aria-hidden="true">•</span> Animation <span aria-hidden="true">•</span> Luau implementation</p>
             </div>
             <div class="hero-avatar">
                 <div class="avatar-container">
@@ -100,56 +79,56 @@
         </div> -->
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container about-layout">
-            <div class="section-header reveal">
-                <span class="section-tag">// About Me</span>
-                <h2 class="section-title">A little about<br><span class="gradient-text">Dudehunttt.</span></h2>
-            </div>
-            <div class="about-text reveal">
-                <p class="about-lead">I design Roblox interfaces that look good and feel even better to use.</p>
-                <p>Over the past 10 months, I've been building in Roblox Studio from shops and inventories to the small animations that give an interface its personality.</p>
-                <p>Before focusing on Roblox, I spent time learning full-stack web development, which helped me understand both how interfaces look and how they work behind the scenes.</p>
-                <p>Now, I bring that experience into Roblox UI, designing custom elements in Figma and bringing them to life with Luau.</p>
-                <div class="about-tags">
-                    <span class="tag">Roblox Studio</span><span class="tag">Figma</span>
-                    <span class="tag">Luau</span><span class="tag">UI Animation</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Past Works Section (comes before Services) -->
     <section id="portfolio" class="section">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag">// My Work</span>
                 <h2 class="section-title">Past <span class="gradient-text">Works</span></h2>
-                <p class="section-desc">Real game UIs I've designed and built. Each one crafted with attention to detail.</p>
+                <p class="section-desc">A selection of my Roblox interfaces and animations.</p>
             </div>
-            <article class="motion-feature reveal">
-                <div class="motion-media">
-                    <img src="assets/server-luck-animation.gif" alt="Animated Roblox server luck shop with glowing buttons and animated effects" width="800" height="450" loading="lazy">
+            <div class="work-group-heading"><h3>UI Animations</h3><p>Interfaces in motion.</p></div>
+            <div class="portfolio-grid latest-work-grid">
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-image full-ui-preview">
+                        <img src="assets/shop-ui-animation.gif" alt="Animated shop UI demonstrated inside a Roblox game" width="800" height="524" loading="lazy">
+                        <button type="button" class="project-expand" aria-label="Expand Shop UI Animation"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg></button>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Shop UI Animation</h3>
+                        <div class="portfolio-tags"><span>UI Animation</span><span>Shop System</span></div>
+                    </div>
                 </div>
-                <div class="motion-copy">
-                    <span class="section-tag">Featured animation</span>
-                    <h3>Server Luck Animated Card</h3>
-                    <p>Animated effects for a Roblox server luck shop card.</p>
-                    <div class="portfolio-tags"><span>UI Animation</span><span>Roblox Studio</span></div>
+                <div class="portfolio-card reveal" data-delay="100">
+                    <div class="portfolio-image full-ui-preview">
+                        <img src="assets/server-luck-animation.gif" alt="Animated Roblox server luck shop card" width="800" height="450" loading="lazy">
+                        <button type="button" class="project-expand" aria-label="Expand Server Luck Animated Card"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg></button>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Server Luck Animated Card</h3>
+                        <div class="portfolio-tags"><span>UI Animation</span><span>Shop System</span></div>
+                    </div>
                 </div>
-            </article>
-            <div class="portfolio-grid">
+            </div>
+            <div class="work-group-heading"><h3>UI Designs</h3><p>Shops, inventories, and game interfaces.</p></div>
+            <div class="portfolio-grid static-work-grid">
+                <div class="portfolio-card reveal" data-delay="100">
+                    <div class="portfolio-image full-ui-preview">
+                        <img src="assets/rebirth-ui.png" alt="Rebirth interface showing before and after skill multipliers, level progress, and rebirth buttons" width="578" height="423" loading="lazy">
+                        <button type="button" class="project-expand" aria-label="Expand Rebirth UI"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg></button>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Rebirth UI</h3>
+                        <div class="portfolio-tags"><span>UI Design</span><span>Rebirth System</span></div>
+                    </div>
+                </div>
                 <div class="portfolio-card reveal" data-delay="0">
                     <div class="portfolio-image">
                         <img src="assets/shop-ui.png" alt="Shop UI Design" loading="lazy">
-                        <div class="portfolio-overlay">
-                            <span class="portfolio-view">View Project</span>
-                        </div>
+                        <button type="button" class="project-expand" aria-label="Expand Shop UI"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg></button>
                     </div>
                     <div class="portfolio-info">
                         <h3>Shop UI</h3>
-                        <p>Win packs & server boosts shop with tiered pricing and clean card layouts.</p>
                         <div class="portfolio-tags">
                             <span>UI Design</span>
                             <span>Shop System</span>
@@ -159,13 +138,10 @@
                 <div class="portfolio-card reveal" data-delay="100">
                     <div class="portfolio-image">
                         <img src="assets/pets-ui.png" alt="Pets Inventory UI" loading="lazy">
-                        <div class="portfolio-overlay">
-                            <span class="portfolio-view">View Project</span>
-                        </div>
+                        <button type="button" class="project-expand" aria-label="Expand Pet Inventory"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg></button>
                     </div>
                     <div class="portfolio-info">
                         <h3>Pet Inventory</h3>
-                        <p>Pet management system with equip/delete actions, grid display, and stat tracking.</p>
                         <div class="portfolio-tags">
                             <span>Inventory</span>
                             <span>Pet System</span>
@@ -175,13 +151,10 @@
                 <div class="portfolio-card reveal" data-delay="200">
                     <div class="portfolio-image">
                         <img src="assets/trails-ui.png" alt="Trails Shop UI" loading="lazy">
-                        <div class="portfolio-overlay">
-                            <span class="portfolio-view">View Project</span>
-                        </div>
+                        <button type="button" class="project-expand" aria-label="Expand Trail Shop"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg></button>
                     </div>
                     <div class="portfolio-info">
                         <h3>Trail Shop</h3>
-                        <p>Multi-tab shop with trails, tools, boosts & accessories. Tabbed navigation with pricing grid.</p>
                         <div class="portfolio-tags">
                             <span>Shop System</span>
                             <span>Tabbed UI</span>
@@ -197,8 +170,8 @@
                     <p>Original UI elements made to fit a game's personality. A couple of my button designs, up close.</p>
                 </div>
                 <div class="button-samples">
-                    <figure><div class="button-stage"><img src="assets/btn-styles.png" alt="Custom Styles button designed in Figma" loading="lazy"></div><figcaption>Styles button</figcaption></figure>
-                    <figure><div class="button-stage"><img src="assets/btn-retry.png" alt="Custom Retry button designed in Figma" loading="lazy"></div><figcaption>Retry button</figcaption></figure>
+                    <figure><div class="button-stage"><img src="assets/btn-styles.png" alt="Custom Styles button designed in Figma" loading="lazy"></div></figure>
+                    <figure><div class="button-stage"><img src="assets/btn-retry.png" alt="Custom Retry button designed in Figma" loading="lazy"></div></figure>
                 </div>
             </article>
 
@@ -211,7 +184,7 @@
             <div class="section-header reveal">
                 <span class="section-tag">// What I Do</span>
                 <h2 class="section-title">Services I <span class="gradient-text">Offer</span></h2>
-                <p class="section-desc">Everything you need to make your game's UI stand out from the crowd.</p>
+                <p class="section-desc">Design, animation, and implementation for your Roblox interface.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card reveal" data-delay="0">
@@ -223,16 +196,8 @@
                         </svg>
                     </div>
                     <h3 class="service-title">UI Design</h3>
-                    <p class="service-desc">
-                        Custom-designed interfaces for shops, inventories, HUDs, menus, 
-                        leaderboards, and more tailored to your game's aesthetic.
-                    </p>
-                    <ul class="service-list">
-                        <li>Shop & Store UIs</li>
-                        <li>Inventory Systems</li>
-                        <li>HUD & Status Bars</li>
-                        <li>Menu & Settings Screens</li>
-                    </ul>
+                    <p class="service-desc">Custom Figma designs for your game, including individual elements and complete screens.</p>
+                    <ul class="service-list"><li>Shop & inventory layouts</li><li>Menus & HUDs</li><li>Custom buttons & icons</li><li>Figma mockups</li></ul>
                 </div>
                 <div class="service-card featured reveal" data-delay="100">
                     <!-- <div class="service-badge">Most Popular</div> -->
@@ -242,16 +207,8 @@
                         </svg>
                     </div>
                     <h3 class="service-title">UI Animation</h3>
-                    <p class="service-desc">
-                        Smooth, juicy animations that make your UI feel alive. 
-                        Open/close transitions, hover effects, and micro-interactions.
-                    </p>
-                    <ul class="service-list">
-                        <li>TweenService Animations</li>
-                        <li>Open/Close Transitions</li>
-                        <li>Micro-interactions</li>
-                        <li>Notification Systems</li>
-                    </ul>
+                    <p class="service-desc">Luau animations for interface transitions and visual feedback.</p>
+                    <ul class="service-list"><li>Open & close transitions</li><li>Button hover & press effects</li><li>Animated cards & highlights</li><li>TweenService animations</li></ul>
                 </div>
                 <div class="service-card reveal" data-delay="200">
                     <div class="service-icon">
@@ -261,17 +218,28 @@
                             <line x1="14" y1="4" x2="10" y2="20"/>
                         </svg>
                     </div>
-                    <h3 class="service-title">UI Implementation</h3>
-                    <p class="service-desc">
-                        Full Luau scripting to bring your UI to life in Roblox Studio. 
-                        Clean, optimized code that just works.
-                    </p>
-                    <ul class="service-list">
-                        <li>Luau Scripting</li>
-                        <li>Data Integration</li>
-                        <li>Responsive Layouts</li>
-                        <li>Performance Optimization</li>
-                    </ul>
+                    <h3 class="service-title">Studio UI Setup</h3>
+                    <p class="service-desc">Designs assembled in Roblox Studio, with layouts adapted for your target screen sizes.</p>
+                    <ul class="service-list"><li>Organized UI elements</li><li>Custom asset placement</li><li>Phone, tablet & desktop layouts</li><li>Animation script setup</li></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container about-layout">
+            <div class="section-header reveal">
+                <span class="section-tag">// About Me</span>
+                <h2 class="section-title">A little about<br><span class="gradient-text">Dudehunttt.</span></h2>
+            </div>
+            <div class="about-text reveal">
+                <p class="about-lead">I’m Dudehunttt, a Roblox UI designer and animator.</p>
+                <p>I've spent the past 10 months building shops, inventories, and animated interfaces in Roblox Studio.</p>
+                <p>With a background in full-stack web development, I design custom elements in Figma and bring them to life with Luau.</p>
+                <div class="about-tags">
+                    <span class="tag">Roblox Studio</span><span class="tag">Figma</span>
+                    <span class="tag">Luau</span><span class="tag">UI Animation</span>
                 </div>
             </div>
         </div>
@@ -282,8 +250,8 @@
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag">// Get In Touch</span>
-                <h2 class="section-title">Let's Build Something <span class="gradient-text">Amazing</span></h2>
-                <p class="section-desc">Got a game that needs killer UI? Let's talk.</p>
+                <h2 class="section-title">Need UI for your <span class="gradient-text">Roblox game?</span></h2>
+                <p class="section-desc">Send me your screen list, style references, target devices, budget, and deadline. Mention the animations you need — a rough brief is fine.</p>
             </div>
             <div class="contact-content">
                 <div class="contact-cards reveal">
@@ -337,15 +305,15 @@
         <div class="container">
             <div class="footer-content">
                 <a href="#" class="footer-logo">
-                    <span class="logo-bracket">&lt;</span>Dudehunttt<span class="logo-bracket"> /&gt;</span>
+                    Dudehunttt
                 </a>
-                <p class="footer-text">Crafting immersive Roblox UIs, one frame at a time.</p>
+                <p class="footer-text">Roblox UI design, animation, and Luau implementation.</p>
                 <div class="footer-divider"></div>
                 <p class="footer-copy">&copy; 2026 Dudehunttt. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20261017-particles"></script>
 </body>
 </html>

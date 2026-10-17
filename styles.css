@@ -1386,3 +1386,58 @@ img {
 #discord-card { cursor: text; }
 #discord-card:hover { transform: none; }
 @media (max-width: 768px) { .contact-cards { grid-template-columns: 1fr; } }
+
+/* Latest shop and rebirth work */
+.latest-work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.full-ui-preview { aspect-ratio: 800 / 524; background: var(--bg-secondary); }
+.full-ui-preview img { object-fit: contain; }
+.portfolio-card:hover .full-ui-preview img { transform: none; }
+@media (max-width: 768px) { .latest-work-grid { grid-template-columns: 1fr; } }
+
+/* Equal emphasis for animation projects */
+.work-group-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin: 12px 0 20px; }
+.work-group-heading h3 { font-size: 1.2rem; font-weight: 600; }
+.work-group-heading p { color: var(--text-secondary); font-size: .85rem; }
+.latest-work-grid { margin-bottom: 48px; }
+.latest-work-grid .portfolio-image { aspect-ratio: 16 / 10; }
+.static-work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 768px) {
+    .static-work-grid { grid-template-columns: 1fr; }
+    .work-group-heading { flex-direction: column; gap: 4px; }
+}
+
+/* Concrete services in the hero */
+.hero-capabilities { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; color: var(--text-secondary); font-size: .85rem; line-height: 1.7; }
+.hero-capabilities span { color: var(--accent-purple); opacity: .7; }
+@media (max-width: 1024px) { .hero-capabilities { justify-content: center; } }
+
+/* Commission scope and delivery */
+.delivery-details { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 32px; padding: 28px 32px; border: 1px solid var(--border-subtle); border-radius: 16px; background: var(--bg-card); }
+.delivery-details h3 { font-size: 1rem; margin-bottom: 10px; }
+.delivery-details p { color: var(--text-secondary); font-size: .9rem; line-height: 1.75; }
+@media (max-width: 768px) { .delivery-details { grid-template-columns: 1fr; gap: 24px; padding: 24px; } }
+
+/* Quiet framing for the work */
+#hero::before { animation: none; opacity: .35; }
+.avatar-ring { animation-duration: 24s; }
+.avatar-glow { animation: none; opacity: .35; }
+.section-title .gradient-text { background: none; -webkit-text-fill-color: currentColor; color: var(--text-primary); }
+.nav-logo, .footer-logo { font-family: var(--font-primary); letter-spacing: -.025em; }
+.service-card:hover { transform: none; box-shadow: none; border-color: var(--border-hover); }
+.service-card::before { display: none; }
+.service-card:hover .service-icon { box-shadow: none; background: var(--accent-purple-dim); }
+.portfolio-card:hover { transform: translateY(-2px); box-shadow: none; }
+.portfolio-card:hover .portfolio-image img { transform: none; }
+.btn-primary { box-shadow: none; }
+.btn-primary:hover { box-shadow: 0 4px 14px rgba(168,85,247,.15); }
+.project-expand { position: absolute; right: 12px; bottom: 12px; width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.25); border-radius: 9px; background: rgba(7,6,11,.85); color: white; display: grid; place-items: center; cursor: pointer; transition: background .2s, border-color .2s; }
+.project-expand:hover { background: #252032; border-color: var(--accent-purple); }
+.project-expand:focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .avatar-ring { animation: none; } }
+
+/* Full artwork previews and visible expand controls */
+.portfolio-image { background: #121019; }
+.portfolio-image img { object-fit: contain; }
+.static-work-grid .portfolio-image { aspect-ratio: 4 / 3; }
+.project-expand { background: #eeeaf6; color: #21182f; border: 1px solid rgba(255,255,255,.9); box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+.project-expand:hover { background: #fff; color: #21182f; border-color: #fff; }
